@@ -39,6 +39,8 @@ export default function Result({recommendations, isGameOver, nextStage}) {
         handleClick()
         }, [])
 
+    console.log(link);
+
     return (
         <div className="bg-black/25 backdrop-blur-sm absolute z-[90] top-0 bottom-0 left-0 right-0">
             <div className="absolute z-[100] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col bg-white rounded-lg overflow-hidden">
@@ -68,11 +70,13 @@ export default function Result({recommendations, isGameOver, nextStage}) {
                             <li className="mt-2"><span className="font-medium">Аксессуары: </span>{recommendations[3]?.title}</li>
                         </ul>
                 </div>}
-                {isGameOver && <Link to={link !== "" && link !== import.meta.env.VITE_KINDERGARTEN_LINK ? link : "/"}
+                {isGameOver && (link === '' || link === 'http://checkroom.sfera.local/') &&
+                    <Link to={link === 'http://checkroom.sfera.local/' || link === '' ? "/" : link}
                       onClick={() => document.exitFullscreen()}
-                      className="bg-yellow-400 hover:bg-gradient-to-t from-yellow-400 to-yellow-300 text-2xl p-4">Выйти
-                    в меню
-                </Link>}
+                      className="bg-yellow-400 hover:bg-gradient-to-t from-yellow-400 to-yellow-300 text-2xl p-4">
+                        Выйти в меню
+                    </Link>
+                }
                 {!isGameOver && <Link to={nextStage} className="bg-yellow-400 hover:bg-gradient-to-t from-yellow-400 to-yellow-300 text-2xl p-4">Следующий этап</Link>}
             </div>
         </div>

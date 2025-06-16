@@ -151,7 +151,7 @@ export default function JewelryStage() {
                         ))}
                     </div>
                     <div
-                        ref={(!isChecked) || (isChecked && necklace[0]?.correct !== "true") ? earringsDrop : null}
+                        ref={(!isChecked) || (isChecked && earrings[0]?.correct !== "true") ? earringsDrop : null}
                         className={`flex w-full h-[20%] z-30 relative`}
                     >
                         {earrings[0] &&

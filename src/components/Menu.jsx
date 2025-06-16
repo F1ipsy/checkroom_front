@@ -32,6 +32,12 @@ export default function Menu() {
             case import.meta.env.VITE_SCHOOL_LINK:
                 setSelectedCategory(categories.find(category => category.id === 1))
                 break;
+            case import.meta.env.VITE_MUSIC_LINK:
+                setSelectedCategory(categories.find(category => category.id === 4));
+                break;
+            case import.meta.env.VITE_BUH_LINK:
+                setSelectedCategory(categories.find(category => category.id === 6));
+                break;
         }
     }, [categories])
 
@@ -49,7 +55,7 @@ export default function Menu() {
                         >
                             Выберите категорию
                         </option>
-                        {selectedCategory
+                        {selectedCategory && link !== ""
                             ? <option
                                 selected
                                 value={selectedCategory}
